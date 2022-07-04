@@ -27,4 +27,4 @@ Import-Module Microsoft-Defender-for-Identity-Action-Account-Setup.psm1
 
 # Screenshot
 
-![Alt text](/Screenshots/Import-Module Microsoft-Defender-for-Identity-Action-Account-Setup_01.png?raw=true "Microsoft Defender for Identity Action Account Setup")
+![Alt text](/Screenshots/Microsoft-Defender-for-Identity-Action-Account-Setup_01.png?raw=true "Microsoft Defender for Identity Action Account Setup")
