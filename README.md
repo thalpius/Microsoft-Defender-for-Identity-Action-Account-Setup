@@ -8,3 +8,16 @@ This script configures a Microsoft Defender for Identity action account to perfo
 4. It created a Group Managed Service Account with the required parameters.
 5. The scripts set the permissions within Active Directory on a given organization unit for the Group Managed Service Account to the required response actions within Microsoft Defender for Identity.
 
+# Usage Microsoft Defender for Identity Action Account Setup
+
+Import-Module Microsoft-Defender-for-Identity-Action-Account-Setup.psm1
+
+CreateKdsRootKey -EffectiveTime 10
+CreateADGroupGmsa -NameADGroup "MDIActionAccounts" -PathADGroup "OU=Groups,DC=thalpius,DC=local"
+CreateADGroupPrincipalsManagedPassword -NameADGroup "MDISensors" -PathADGroup "OU=Groups,DC=thalpius,DC=local"
+AddDomainControllersToADGroup -NameADGroup "MDISensors"
+CreateGmsaAccount -NameGmsaAccount "MDIAction" -DescriptionGmsaAccount "MDI Action Account" -KerberosEncryptionType "AES256" -PrincipalGroup "MDISensors"
+AddGmsaToADGroup -NameGmsaAccount "MDIAction" -NameADGroup "MDIActionAccounts"
+AddPermissionsToOU -NameADGroup "MDIActionAccounts" -OrganizationUnit "OU=Groups,DC=thalpius,DC=local"
+
+# Screenshot
