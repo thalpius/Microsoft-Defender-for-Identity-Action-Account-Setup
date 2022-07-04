@@ -12,18 +12,18 @@ This script configures a Microsoft Defender for Identity action account to perfo
 
 Import-Module Microsoft-Defender-for-Identity-Action-Account-Setup.psm1
 
-CreateKdsRootKey -EffectiveTime 10\
+CreateKdsRootKey -EffectiveTime 10
 
-CreateADGroupGmsa -NameADGroup "MDIActionAccounts" -PathADGroup "OU=Groups,DC=thalpius,DC=local"\
+CreateADGroupGmsa -NameADGroup "MDIActionAccounts" -PathADGroup "OU=Groups,DC=thalpius,DC=local"
 
-CreateADGroupPrincipalsManagedPassword -NameADGroup "MDISensors" -PathADGroup "OU=Groups,DC=thalpius,DC=local"\
+CreateADGroupPrincipalsManagedPassword -NameADGroup "MDISensors" -PathADGroup "OU=Groups,DC=thalpius,DC=local"
 
-AddDomainControllersToADGroup -NameADGroup "MDISensors"\
+AddDomainControllersToADGroup -NameADGroup "MDISensors"
 
-CreateGmsaAccount -NameGmsaAccount "MDIAction" -DescriptionGmsaAccount "MDI Action Account" -KerberosEncryptionType "AES256" -PrincipalGroup "MDISensors"\
+CreateGmsaAccount -NameGmsaAccount "MDIAction" -DescriptionGmsaAccount "MDI Action Account" -KerberosEncryptionType "AES256" -PrincipalGroup "MDISensors"
 
-AddGmsaToADGroup -NameGmsaAccount "MDIAction" -NameADGroup "MDIActionAccounts"\
+AddGmsaToADGroup -NameGmsaAccount "MDIAction" -NameADGroup "MDIActionAccounts"
 
-AddPermissionsToOU -NameADGroup "MDIActionAccounts" -OrganizationUnit "OU=Groups,DC=thalpius,DC=local"\
+AddPermissionsToOU -NameADGroup "MDIActionAccounts" -OrganizationUnit "OU=Groups,DC=thalpius,DC=local"
 
 # Screenshot
