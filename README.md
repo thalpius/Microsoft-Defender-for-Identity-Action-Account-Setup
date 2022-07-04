@@ -26,3 +26,5 @@ Import-Module Microsoft-Defender-for-Identity-Action-Account-Setup.psm1
 - AddPermissionsToOU -NameADGroup "MDIActionAccounts" -OrganizationUnit "OU=Groups,DC=thalpius,DC=local"
 
 # Screenshot
+
+![Alt text](/Screenshots/Import-Module Microsoft-Defender-for-Identity-Action-Account-Setup_01.png?raw=true "Microsoft Defender for Identity Action Account Setup")
